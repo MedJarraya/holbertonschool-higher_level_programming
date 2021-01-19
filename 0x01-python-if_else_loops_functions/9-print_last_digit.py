@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 def print_last_digit(a):
     if a < 0:
         nbr = (-a) % 10
@@ -6,4 +7,4 @@ def print_last_digit(a):
     else:
         nbr = a % 10
     print("{:d}".format(nbr), end='')
-    return(nbr)
+return(nbr)
