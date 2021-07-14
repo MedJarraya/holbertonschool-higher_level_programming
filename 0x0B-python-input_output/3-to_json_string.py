@@ -1,9 +1,12 @@
 #!/usr/bin/python3
-""" This module defines the function to_json_string. """
+"""
+JSON of an objet
+"""
+
 import json
 
 
 def to_json_string(my_obj):
-    """ This function returns an object turned into
-    a json string. """
-    return json.dumps(my_obj)
+    """returns the JSON of an objet"""
+    json_string = json.dumps(my_obj)
+    return(json_string)
