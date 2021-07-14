@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-""" This module defines the function from_json_string. """
+"""
+From JSON to Object
+"""
+
 import json
 
 
