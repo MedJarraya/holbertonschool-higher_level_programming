@@ -1,13 +1,9 @@
 #!/usr/bin/python3
-"""
-JSON of an objet
-"""
-
-
+""" To JSON string """
 import json
 
 
 def to_json_string(my_obj):
-    """returns the JSON of an objet"""
-    json_string = json.dumps(my_obj)
-    return(json_string)
+    """ Function that returns the JSON representation
+    of an object (string) """
+    return (json.dumps(my_obj))
