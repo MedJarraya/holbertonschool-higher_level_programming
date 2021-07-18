@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""Module to lookup for available methds"""
+"""
+Module to lookup for available methds
+"""
 
 
 def lookup(obj):
