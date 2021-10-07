@@ -1,12 +1,8 @@
 #!/usr/bin/node
-// prints the second biggest integer in list of arguments
-let args = process.argv.slice(2);
-if (args.length <= 1) {
+if (process.argv.length === 2 || process.argv.length === 3) {
   console.log('0');
 } else {
-  let intArr = args.map(s => parseInt(s));
-  let sortedArr = intArr.sort((a, b) => a - b);
-  let setValues = new Set(sortedArr);
-  let sortedValues = Array.from(setValues);
-  console.log(sortedValues[sortedValues.length - 2]);
+  const array = process.argv.slice(2).sort((a, b) => a - b);
+  const len = array.length;
+  console.log(array[len - 2]);
 }
