@@ -1,27 +1,38 @@
 #!/usr/bin/python3
-''' lists cities from given state from the database hbtn_0e_0_usa '''
+"""
+states module
+"""
 
 
-def list_all_cities():
-    import MySQLdb
-    import sys
-    conn = MySQLdb.connect(host="localhost", port=3306, user=sys.argv[1],
-                           passwd=sys.argv[2], db=sys.argv[3], charset="utf8")
-    cur = conn.cursor()
-    cur.execute("""SELECT cities.name FROM cities JOIN states \
-            ON states.id = cities.state_id WHERE states.name=%s
-            ORDER BY cities.id""", (sys.argv[4],))
-    query_rows = cur.fetchall()
-    if query_rows is None:
-        print("")
-    for i in range(len(query_rows)):
-        if len(query_rows)-1 == i:
-            print("{}".format(query_rows[i][0]))
-        else:
-            print("{}, ".format(query_rows[i][0]), end="")
+import MySQLdb
+import sys
+
+
+def listcity_states():
+    """"
+    lists all cities of that state, using the database hbtn_0e_4_usa
+    """
+    user = sys.argv[1]
+    password = sys.argv[2]
+    database = sys.argv[3]
+    searchstate = sys.argv[4]
+    cities = []
+
+    db = MySQLdb.connect(host="localhost", port=3306, user=user,
+                         passwd=password, db=database)
+
+    cur = db.cursor()
+    cur.execute("""SELECT cities.id, cities.name, states.name
+    FROM cities INNER JOIN states ON cities.state_id = states.id
+    WHERE states.name=%s
+    ORDER BY id ASC""", (searchstate,))
+    rows = cur.fetchall()
+    for row in rows:
+        cities.append(row[1])
+    print(', '.join(cities))
     cur.close()
-    conn.close()
+    db.close()
 
 
 if __name__ == "__main__":
-    list_all_cities()
+    listcity_states()
