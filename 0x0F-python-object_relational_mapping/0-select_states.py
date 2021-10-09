@@ -1,15 +1,34 @@
 #!/usr/bin/python3
 """
-Lists all states from the database hbtn_0e_0_usa
+states module
 """
 
-if __name__ == "__main__":
-    import MySQLdb
-    from sys import argv
 
-    with MySQLdb.connect(host="localhost", user=argv[1], passwd=argv[2],
-                         db=argv[3], port=3306) as db:
-        db.execute("SELECT * FROM states ORDER BY id ASC")
-        table = db.fetchall()
-        for data in table:
-            print(data)
+import MySQLdb
+import sys
+
+
+def create_states():
+    """"
+    creates a states table
+    in hbtn_0e_0_usa with some data
+    module
+    """
+    user = sys.argv[1]
+    password = sys.argv[2]
+    database = sys.argv[3]
+
+    db = MySQLdb.connect(host="localhost", port=3306, user=user,
+                         passwd=password, db=database)
+
+    cur = db.cursor()
+    cur.execute("SELECT * FROM states ORDER BY id ASC")
+    rows = cur.fetchall()
+    for row in rows:
+        print(row)
+    cur.close()
+    db.close()
+
+
+if __name__ == "__main__":
+    create_states()
