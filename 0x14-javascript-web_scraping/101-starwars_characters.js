@@ -1,21 +1,23 @@
 #!/usr/bin/node
 // star wars again
 const request = require('request');
-const args = process.argv.splice(2);
-const url = 'https://swapi-api.hbtn.io/api/films/' + args[0];
-request(url, function (error, response, body) {
-  if (error) {
-    console.log('code: %d', response.statusCode);
-  } else {
-    const characters = JSON.parse(body).characters;
-    characters.forEach(ch => {
-      request(ch, function (error, response, body) {
-        if (error) {
-          console.log('code: %d', response.statusCode);
-        } else {
-          console.log(JSON.parse(body).name);
-        }
-      });
+const movieId = process.argv[2];
+const apiUrl = 'https://swapi-api.hbtn.io/api/films/' + movieId;
+
+request(apiUrl, (err, response, body) => {
+  if (err) {
+    console.error(err);
+    return;
+  }
+  const charactersURLs = JSON.parse(body).characters;
+
+  for (const line of charactersURLs) {
+    request(line, (err, response, body) => {
+      if (err) {
+        console.error(err);
+      } else {
+        console.log(JSON.parse(body).name);
+      }
     });
   }
 });
