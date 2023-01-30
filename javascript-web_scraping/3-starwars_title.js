@@ -1,5 +1,5 @@
 #!/usr/bin/node
-// Star wars title
+// Star wars title @author: @medjarraya
 
 const x = require('request');
 const http = 'https://swapi-api.hbtn.io/api/films/' + process.argv[2];

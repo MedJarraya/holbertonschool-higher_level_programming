@@ -1,5 +1,5 @@
 #!/usr/bin/node
-// Write me
+// Write me @author: @medjarraya
 const fs = require('fs');
 const args = process.argv;
 const filename = args[2];

@@ -1,5 +1,5 @@
 #!/usr/bin/node
-// Readme
+// Readme @author: @medjarraya
 
 const file = process.argv[2];
 const fs = require('fs');

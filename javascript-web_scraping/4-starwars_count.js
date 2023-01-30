@@ -1,5 +1,5 @@
 #!/usr/bin/node
-// Star wars count
+// Star wars count @author: @medjarraya
 const x = require('request');
 
 x.get(process.argv[2], (err, res, body) => {

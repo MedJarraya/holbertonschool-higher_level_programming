@@ -1,5 +1,5 @@
 #!/usr/bin/node
-// Status code
+// Status code @author: @medjarraya
 const args = process.argv;
 const URL = args[2];
 const request = require('request');

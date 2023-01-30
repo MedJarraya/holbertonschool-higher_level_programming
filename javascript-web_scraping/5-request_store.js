@@ -1,5 +1,5 @@
 #!/usr/bin/node
-// Reauest stores
+// Reauest stores @author: @medjarraya
 const args = process.argv.slice(2);
 const x = require('request');
 const fs = require('fs');

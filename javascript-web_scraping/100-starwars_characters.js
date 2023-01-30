@@ -1,5 +1,5 @@
 #!/usr/bin/node
-// Is hard but we do it anyways
+// Is hard but we do it anyways @author: @medjarraya
 const request = require('request');
 const args = process.argv.splice(2);
 const url = 'https://swapi-api.hbtn.io/api/films/' + args[0];
